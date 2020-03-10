@@ -64,7 +64,8 @@ def two_pair(ranks):
 
 def hand_rank(hand):
     """
-    Return a tuple indicating the ranking of a hand.
+    Return a tuple indicating the ranking of a hand. The first values is the main ranking.
+    If there is a tie, we use the remaining tuple elements.
     We will use this ranking to compare hands.
     """
     ranks = card_ranks(hand)
@@ -97,8 +98,8 @@ class PokerHand:
 
     def compare_with(self, other_poker_hand):
         """
-        We compare the current poker hand with the second poker hand.
-        If the current poker hand is better, we return Result.WIN.
+        We compare the current poker ranking hand with the given poker hand raking.
+        If the current poker hand ranking is greater, we return Result.WIN.
         Otherwise, we return Result.LOSS.
         """
         return Result.WIN if self.ranking > other_poker_hand.ranking else Result.LOSS
